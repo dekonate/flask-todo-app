@@ -27,7 +27,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install markupsafe==2.0.1
+          pip install flask==2.2.5 werkzeug==2.2.3 markupsafe==2.0.1
 
       - name: Initialize SQLite database
         run: |
