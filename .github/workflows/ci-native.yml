@@ -46,7 +46,10 @@ jobs:
           if [ "$HTTP_CODE" = "200" ] || [ "$HTTP_CODE" = "302" ]; then
             echo "Flask server is up and responding"
           else
-            echo "Flask server did not respond correctly"
+            echo "----- Response body (traceback) -----"
+            curl -s http://127.0.0.1:7345/ | grep -oE "Traceback.*|Error.*" | head -30
+            echo "----- server.log -----"
+            sleep 2
             cat server.log
             exit 1
           fi
